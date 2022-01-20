@@ -1,9 +1,12 @@
+import React from 'react';
+import 'antd/dist/antd.css';
 import './App.css';
+import AdminUI from './components/AdminUI';
 
 function App() {
   return (
-    <div className='App'>
-      <p>app component</p>
+    <div className='admin-wrp'>
+      <AdminUI />
     </div>
   );
 }

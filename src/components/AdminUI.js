@@ -52,7 +52,7 @@ const EditableCell = ({
   );
 };
 
-const EditableTable = () => {
+const AdminUI = () => {
   const [form] = Form.useForm();
   let [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');
@@ -280,4 +280,4 @@ const EditableTable = () => {
   );
 };
 
-export default EditableTable;
+export default AdminUI;
