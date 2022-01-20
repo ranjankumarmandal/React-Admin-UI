@@ -53,6 +53,7 @@ const EditableCell = ({
   );
 };
 
+// AdminUI component
 const AdminUI = () => {
   const [form] = Form.useForm();
   let [data, setData] = useState(originData);
