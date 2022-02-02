@@ -38,3 +38,14 @@ code {
 .ant-table-tbody > tr.ant-table-row-selected:hover > td {
   background: #eee;
 }
+
+/* .model-input {
+  align-content: center;
+} */
+
+.test {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+}

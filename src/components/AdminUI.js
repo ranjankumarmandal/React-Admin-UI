@@ -11,6 +11,7 @@ import {
   Button,
 } from 'antd';
 import axios from './util/Api';
+import AddUserModel from './AddUserModel';
 import { EditOutlined, DeleteTwoTone } from '@ant-design/icons';
 import { GET_DATA_URL } from '../constants';
 const { Search } = Input;
@@ -59,6 +60,7 @@ const AdminUI = () => {
   let [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showUserModel, setShowUserModel] = useState(false);
   const [filter, setFilter] = useState('');
   const [selectedData, setSelectedData] = useState([]);
   const openNotificationWithIcon = (type, message) => {
@@ -242,8 +244,36 @@ const AdminUI = () => {
   if (loading) {
     return <Spin />;
   }
+
+  const showModal = () => {
+    setShowUserModel(true);
+  };
+
+  const handleAddingUser = ({ name, email, role }) => {
+    const newData = [{ name, email, role }, ...data];
+    setData(newData);
+    setShowUserModel(false);
+    console.log(name, email, role);
+  };
+
+  const cancelModel = () => {
+    setShowUserModel(false);
+  };
+
   return (
     <>
+      <Button type='primary' onClick={showModal}>
+        Add User
+      </Button>
+
+      {showUserModel && (
+        <AddUserModel
+          showUserModel={showUserModel}
+          handleAddingUser={handleAddingUser}
+          cancelModel={cancelModel}
+        />
+      )}
+
       <Search
         placeholder='Search by name, email or role'
         onChange={onSearchChange}
