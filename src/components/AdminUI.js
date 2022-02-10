@@ -11,7 +11,6 @@ import {
   Button,
 } from 'antd';
 import axios from './util/Api';
-import AddUserModel from './AddUserModel';
 import { EditOutlined, DeleteTwoTone } from '@ant-design/icons';
 import { GET_DATA_URL } from '../constants';
 const { Search } = Input;
@@ -245,35 +244,8 @@ const AdminUI = () => {
     return <Spin />;
   }
 
-  const showModal = () => {
-    setShowUserModel(true);
-  };
-
-  const handleAddingUser = ({ name, email, role }) => {
-    const newData = [{ name, email, role }, ...data];
-    setData(newData);
-    setShowUserModel(false);
-    console.log(name, email, role);
-  };
-
-  const cancelModel = () => {
-    setShowUserModel(false);
-  };
-
   return (
     <>
-      <Button type='primary' onClick={showModal}>
-        Add User
-      </Button>
-
-      {showUserModel && (
-        <AddUserModel
-          showUserModel={showUserModel}
-          handleAddingUser={handleAddingUser}
-          cancelModel={cancelModel}
-        />
-      )}
-
       <Search
         placeholder='Search by name, email or role'
         onChange={onSearchChange}
