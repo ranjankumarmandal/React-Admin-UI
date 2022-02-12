@@ -59,7 +59,6 @@ const AdminUI = () => {
   let [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');
   const [loading, setLoading] = useState(false);
-  const [showUserModel, setShowUserModel] = useState(false);
   const [filter, setFilter] = useState('');
   const [selectedData, setSelectedData] = useState([]);
   const openNotificationWithIcon = (type, message) => {
